@@ -1,4 +1,4 @@
-# Update Resource - Update
+# Rails Resource Routing: Update
 
 ## Learning Goals
 
