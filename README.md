@@ -56,6 +56,10 @@ This will download all the dependencies for our app and set up the database.
   </tr>
 </table>
 
+## Video Walkthrough
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/Q_ddDjw1hQ8?rel=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>
+
 ## Adding Features
 
 Our birding app has grown wildly in popularity, which means it's time to add a
