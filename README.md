@@ -76,8 +76,12 @@ Let's start by creating a new migration to update our `Bird` model and the
 associated `birds` table:
 
 ```sh
-rails g migration AddLikesToBird likes:integer
+rails g migration AddLikesToBird likes:integer --no-test-framework
 ```
+
+> Note: the `--no-test-framework` argument isn't actually needed in this case
+> because the Rails migration generator does not create tests. However, it
+> doesn't hurt to include it so we do so to encourage the habit.
 
 This will create a new migration file for updating our `birds` table with a new
 column for `likes`. Let's also add a default value of 0 likes, and ensure we're
@@ -106,8 +110,8 @@ We'll also want to re-seed our database. You can do so with this command:
 rails db:reset
 ```
 
-This will drop our old development database, and set from scratch based on our
-schema and seed file.
+This will drop our old development database, and re-create it from scratch based
+on our schema and seed file.
 
 With our data set up, let's turn to the next action: updating likes!
 
@@ -214,10 +218,10 @@ def increment_likes
 end
 ```
 
-Notice that in this action, the only `params` we need is the `id`; we're able to
-use the bird's current number of likes to calculate the next number of likes!
-Our client app no longer needs to concern itself with sending that data or
-performing that calculation.
+Notice that in this action, the only information we need from `params` is the
+`id`; we're able to use the bird's current number of likes to calculate the next
+number of likes! Our client app no longer needs to concern itself with sending
+that data or performing that calculation.
 
 > A note on breaking convention: by creating this custom route, we are breaking
 > the REST conventions we had been following up to this point. One alternate way
@@ -229,7 +233,7 @@ performing that calculation.
 ## Conclusion
 
 Continuing on our journey with REST and CRUD, we've seen how to update a record,
-using a `PATCH /birds/:id`. We also saw how to break RESTful conventions and
+using `PATCH /birds/:id`. We also saw how to break RESTful conventions and
 create a custom route.
 
 ## Resources
