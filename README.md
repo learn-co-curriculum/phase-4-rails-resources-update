@@ -243,3 +243,4 @@ create a custom route.
 
 [active record migrations]: https://guides.rubyonrails.org/active_record_migrations.html
 [dhh controllers]: http://jeromedalbert.com/how-dhh-organizes-his-rails-controllers/
+
