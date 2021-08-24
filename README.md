@@ -10,20 +10,20 @@
 In this lesson, we'll continue working on our Bird API by adding an `update`
 action, so that clients can use our API to update birds. To get set up, run:
 
-```sh
-bundle install
-rails db:migrate db:seed
+```console
+$ bundle install
+$ rails db:migrate db:seed
 ```
 
 This will download all the dependencies for our app and set up the database.
 
-| HTTP Verb | Path | Controller#Action | Description |
-| --- | --- | --- | --- |
-| GET | /birds | birds#index | Show all birds |
-| POST | /birds | birds#create | Create a new bird |
-| GET | /birds/:id | birds#show | Show a specific bird |
-| PATCH or PUT | /birds/:id | birds#update | Update a specific bird |
-| DELETE | /birds/:id | birds#destroy | Delete a specific bird |
+| HTTP Verb    | Path       | Controller#Action | Description            |
+| ------------ | ---------- | ----------------- | ---------------------- |
+| GET          | /birds     | birds#index       | Show all birds         |
+| POST         | /birds     | birds#create      | Create a new bird      |
+| GET          | /birds/:id | birds#show        | Show a specific bird   |
+| PATCH or PUT | /birds/:id | birds#update      | Update a specific bird |
+| DELETE       | /birds/:id | birds#destroy     | Delete a specific bird |
 
 ## Video Walkthrough
 
@@ -44,8 +44,8 @@ of likes for a specific bird.
 Let's start by creating a new migration to update our `Bird` model and the
 associated `birds` table:
 
-```sh
-rails g migration AddLikesToBird likes:integer --no-test-framework
+```console
+$ rails g migration AddLikesToBird likes:integer --no-test-framework
 ```
 
 > Note: the `--no-test-framework` argument isn't actually needed in this case
@@ -69,14 +69,14 @@ end
 
 Next, run the migration:
 
-```sh
-rails db:migrate
+```console
+$ rails db:migrate
 ```
 
 We'll also want to re-seed our database. You can do so with this command:
 
-```sh
-rails db:reset
+```console
+$ rails db:reset
 ```
 
 This will drop our old development database, and re-create it from scratch based
@@ -212,4 +212,3 @@ create a custom route.
 
 [active record migrations]: https://guides.rubyonrails.org/active_record_migrations.html
 [dhh controllers]: http://jeromedalbert.com/how-dhh-organizes-his-rails-controllers/
-
