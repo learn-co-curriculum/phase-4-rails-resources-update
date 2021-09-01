@@ -17,13 +17,13 @@ $ rails db:migrate db:seed
 
 This will download all the dependencies for our app and set up the database.
 
-| HTTP Verb    | Path       | Controller#Action | Description            |
-| ------------ | ---------- | ----------------- | ---------------------- |
-| GET          | /birds     | birds#index       | Show all birds         |
-| POST         | /birds     | birds#create      | Create a new bird      |
-| GET          | /birds/:id | birds#show        | Show a specific bird   |
-| PATCH or PUT | /birds/:id | birds#update      | Update a specific bird |
-| DELETE       | /birds/:id | birds#destroy     | Delete a specific bird |
+| HTTP Verb        | Path           | Controller#Action     | Description                |
+| ---------------- | -------------- | --------------------- | -------------------------- |
+| GET              | /birds         | birds#index           | Show all birds             |
+| POST             | /birds         | birds#create          | Create a new bird          |
+| GET              | /birds/:id     | birds#show            | Show a specific bird       |
+| **PATCH or PUT** | **/birds/:id** | **birds#update**      | **Update a specific bird** |
+| DELETE           | /birds/:id     | birds#destroy         | Delete a specific bird     |
 
 ## Video Walkthrough
 
@@ -151,18 +151,20 @@ Request Body
 }
 ```
 
+If we had the client application built out, to implement this feature, we would
+add a "Like" button to each bird's information. When the button is clicked, the
+frontend code would retrieve the current value of `likes`, add 1 to it, then
+send that information in the request body of a `PUT` OR `PATCH` request. But
+responsibility for keeping track of and updating the likes doesn't really belong
+in the frontend. To fix this, we can use a custom route.
+
 ## Creating Custom Routes
 
-One drawback to the approach for our likes feature is that our frontend is
-required to keep track of the current number of likes, and do the work of
-incrementing that number before sending the request with the updated number of
-likes.
-
-We could take some of that burden off of the frontend by providing a **custom
-route** that will do the work of calculating the number of likes and
-incrementing it, so that all the frontend has to do is send a request to our new
-custom route, without worrying about sending any data in the body of the
-request.
+To take the responsibility for handling likes off of the frontend, we can
+provide a **custom route** that will do the work of calculating the number of
+likes and incrementing it. With this approach, all the frontend has to do is
+send a request to our new custom route, without worrying about sending any data
+in the body of the request.
 
 Update the `routes.rb` file like so:
 
@@ -195,9 +197,9 @@ that data or performing that calculation.
 > A note on breaking convention: by creating this custom route, we are breaking
 > the REST conventions we had been following up to this point. One alternate way
 > to structure this kind of feature and keep our routes and controllers RESTful
-> would be to create a new controller, such as Birds::LikesController, and add a
-> `create` action in this controller. The creator of Rails, DHH, advocates for
-> [this approach for managing sub-resources][dhh controllers].
+> would be to create a new controller, such as Birds::LikesController, and add
+> an `update` action in this controller. The creator of Rails, DHH, advocates
+> for [this approach for managing sub-resources][dhh controllers].
 
 ## Conclusion
 
