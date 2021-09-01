@@ -153,8 +153,8 @@ Request Body
 
 If we had the client application built out, to implement this feature, we would
 add a "Like" button to each bird's information. When the button is clicked, the
-frontend code would retrieve the current value of `likes`, add 1 to it, then
-send that information in the request body of a `PUT` OR `PATCH` request. But
+frontend code would access the current value of `likes`, add 1 to it, then send
+that information in the request body of a `PUT` OR `PATCH` request. But
 responsibility for keeping track of and updating the likes doesn't really belong
 in the frontend. To fix this, we can use a custom route.
 
