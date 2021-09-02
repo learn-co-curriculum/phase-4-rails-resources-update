@@ -207,6 +207,13 @@ Continuing on our journey with REST and CRUD, we've seen how to update a record,
 using `PATCH /birds/:id`. We also saw how to break RESTful conventions and
 create a custom route.
 
+## Check For Understanding
+
+Before you move on, make sure you can answer the following questions:
+
+1. Under what circumstances does it make sense to create a custom route?
+2. What are the advantages and disadvantages of using custom routes?
+
 ## Resources
 
 - [Active Record Migrations][active record migrations]
