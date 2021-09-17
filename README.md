@@ -25,9 +25,8 @@ This will download all the dependencies for our app and set up the database.
 | **PATCH or PUT** | **/birds/:id** | **birds#update**      | **Update a specific bird** |
 | DELETE           | /birds/:id     | birds#destroy         | Delete a specific bird     |
 
-## Video Walkthrough
-
-<iframe width="560" height="315" src="https://www.youtube.com/embed/Q_ddDjw1hQ8?rel=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>
+<!-- ## Video Walkthrough -->
+<!-- <iframe width="560" height="315" src="https://www.youtube.com/embed/Q_ddDjw1hQ8?rel=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe> -->
 
 ## Adding Features
 
